@@ -1,0 +1,19 @@
+{
+    "exclude": [
+        "**/*"
+    ],
+    "references": [
+        {
+            "path": "packages/extensions/utils"
+        },
+        {
+            "path": "packages/test-fixture"
+        },
+        {
+            "path": "packages/extensions/base"
+        },
+        {
+            "path": "packages/test"
+        }
+    ]
+}

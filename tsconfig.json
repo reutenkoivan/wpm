@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "moduleResolution": "Node",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": [
+      "DOM",
+      "ES2015",
+      "ES2016",
+      "ES2017",
+      "ES2018",
+      "ES2019",
+      "ES2020"
+    ],
+    "strict": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "noEmitOnError": true,
+    "importHelpers": true,
+    "resolveJsonModule": true
+  }
+}

@@ -1,0 +1,10 @@
+settings:
+  mode: 'united'
+  registry: 'https://registry.npmjs.org'
+  ignore:
+    - '<root>/packages/**/__test__/**'
+
+modules:
+  reporter:
+    - '@wpm/console-reporter'
+    - ['@wpm/telegram-reporter', { creds: $CREDS }]

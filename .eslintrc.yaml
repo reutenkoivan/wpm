@@ -1,0 +1,142 @@
+ignorePatterns:
+  - 'lib'
+  - 'node_modules'
+  - 'public'
+  - 'global.d.ts'
+  - 'docs'
+extends:
+  - 'eslint:recommended'
+  - 'plugin:import/typescript'
+env:
+  es6: true
+  node: true
+  browser: true
+globals:
+  NodeJS: true
+  codeceptjsFixtureTypes: 'readonly'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: '2020'
+  project:
+    - './tsconfig.lib.json'
+    - './packages/**/tsconfig.json'
+plugins:
+  - '@typescript-eslint'
+  - 'import'
+settings:
+  react:
+    version: 'detect'
+rules:
+  # https://eslint.org/docs/rules/
+  yoda: 'error'
+  curly: 'error'
+  eqeqeq: 'error'
+  no-var: 'error'
+  no-void: 'error'
+  new-cap: 'error'
+  eol-last: 'error'
+  no-labels: 'error'
+  camelcase: 'error'
+  no-console: 'error'
+  wrap-regex: 'error'
+  new-parens: 'error'
+  func-style: 'error'
+  key-spacing: 'error'
+  no-lonely-if: 'error'
+  prefer-const: 'error'
+  arrow-spacing: 'error'
+  block-spacing: 'error'
+  comma-spacing: 'error'
+  require-await: 'error'
+  no-else-return: 'error'
+  spaced-comment: 'error'
+  keyword-spacing: 'error'
+  prefer-template: 'error'
+  no-multi-assign: 'error'
+  block-scoped-var: 'error'
+  no-extend-native: 'error'
+  no-throw-literal: 'error'
+  no-nested-ternary: 'error'
+  no-param-reassign: 'error'
+  no-useless-return: 'error'
+  no-mixed-operators: 'error'
+  no-inline-comments: 'error'
+  no-trailing-spaces: 'error'
+  space-before-blocks: 'error'
+  no-unreachable-loop: 'error'
+  no-unneeded-ternary: 'error'
+  rest-spread-spacing: 'error'
+  no-duplicate-imports: 'error'
+  prefer-destructuring: 'error'
+  no-negated-condition: 'error'
+  capitalized-comments: 'off'
+  prefer-arrow-callback: 'error'
+  array-bracket-spacing: 'error'
+  require-atomic-updates: 'error'
+  template-curly-spacing: 'error'
+  no-useless-constructor: 'error'
+  no-useless-computed-key: 'error'
+  newline-per-chained-call: 'error'
+  no-unmodified-loop-condition: 'error'
+  prefer-promise-reject-errors: 'error'
+  no-unused-private-class-members: 'error'
+  semi: ['error', 'never']
+  quotes: ['error', 'single']
+  max-depth: ['error', { max: 3 }]
+  max-params: ['error', { max: 4 }]
+  jsx-quotes: ['error', 'prefer-single']
+  object-curly-spacing: ['error', 'always']
+  max-nested-callbacks: ['error', { max: 3 }]
+  no-restricted-imports: ['error', 'prop-types']
+  max-len:
+    - 'error'
+    - { code: 120, ignoreStrings: true }
+  lines-between-class-members:
+    - 'error'
+    - 'always'
+    - { exceptAfterSingleLine: true }
+  comma-dangle:
+    - 'error'
+    - { arrays: 'always-multiline', objects: 'always-multiline', exports: 'always-multiline' }
+  no-unused-vars:
+    - 'error'
+    - { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+  padding-line-between-statements:
+    - 'error'
+    - { blankLine: 'always', prev: '*', next: [ 'break', 'continue', 'return' ] }
+    - { blankLine: 'always', prev: [ 'const', 'let' ], next: '*' }
+    - { blankLine: 'any', prev: [ 'const', 'let' ], next: [ 'const', 'let' ] }
+    - { blankLine: 'always', prev: 'directive', next: '*' }
+    - { blankLine: 'any', prev: 'directive', next: 'directive' }
+    - { blankLine: 'always', prev: 'block-like', next: '*' }
+    - { blankLine: 'always', prev: '*', next: 'block-like' }
+
+  # https://github.com/import-js/eslint-plugin-import#readme
+  import/order: 'error'
+  import/first: 'error'
+  import/no-cycle: 'error'
+  import/no-namespace: 'error'
+  import/no-deprecated: 'error'
+  import/no-duplicates: 'error'
+  import/no-unresolved: 'error'
+  import/no-self-import: 'error'
+  import/no-absolute-path: 'error'
+  import/no-unused-modules: 'error'
+  import/no-relative-packages: 'error'
+  import/newline-after-import: 'error'
+  import/no-useless-path-segments: 'error'
+
+# ---------------------------------------------------------------------------------------------------------------------
+
+overrides:
+  - files:
+    - './packages/**/types.ts'
+    rules:
+      # https://eslint.org/docs/rules/
+      no-unused-vars:
+        - 'error'
+        - { vars: 'all', args: 'none' }
+# --------
+  - files:
+    - './**/*.js'
+    parser: 'espree'
