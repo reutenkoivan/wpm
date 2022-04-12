@@ -29,5 +29,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reutenkoivan/wpm.git"
+  },
+  "dependencies": {
+    "signales": "^2.0.5"
   }
 }
