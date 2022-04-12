@@ -1,10 +1,27 @@
-settings:
-  mode: 'united'
-  registry: 'https://registry.npmjs.org'
+defaults:
   ignore:
     - '<root>/packages/**/__test__/**'
 
 modules:
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  reader:
+    - '@wpm/reader-environment' # read settings from PR, ENV.
+    - '@wpm/reader-api' # read settings from specific URL.
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  updater:
+    name: '@wpm/updater-semver'
+    mode: 'united'
+    ignore:
+      - '<root>/packages/test-utils/**' # extend default setting
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+  publisher:
+    - '@wpm/publisher-node-local' # build local node package
+    -
+      name: '@wpm/publisher-node-registry'
+      registry: 'https://registry.npmjs.org'
+  # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   reporter:
     - '@wpm/console-reporter'
-    - ['@wpm/telegram-reporter', { creds: $CREDS }]
+    -
+      name: '@wpm/telegram-reporter'
+      credentials: $TELEGRAM_WEBHOOK_KEY
