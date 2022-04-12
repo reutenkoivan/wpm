@@ -22,7 +22,7 @@ modules:
       registry: 'https://registry.npmjs.org'
   # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   reporter:
-    - '@wpm/file-reporter'
+    - '@wpm/reporter-file'
     -
-      name: '@wpm/telegram-reporter'
+      name: '@wpm/reporter-telegram'
       credentials: $TELEGRAM_WEBHOOK_KEY
