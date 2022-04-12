@@ -13,6 +13,7 @@ modules:
     mode: 'united'
     ignore:
       - '<root>/packages/test-utils/**' # extend default setting
+    message: 'Release commit {{version}}!'
   # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   publisher:
     - '@wpm/publisher-node-local' # build local node package
@@ -21,7 +22,7 @@ modules:
       registry: 'https://registry.npmjs.org'
   # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   reporter:
-    - '@wpm/console-reporter'
+    - '@wpm/file-reporter'
     -
       name: '@wpm/telegram-reporter'
       credentials: $TELEGRAM_WEBHOOK_KEY
