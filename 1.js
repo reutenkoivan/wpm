@@ -1,19 +1,20 @@
-// https://www.npmjs.com/package/read-yaml-file
+// https://www.npmjs.com/package/js-yaml
 const path = require('path')
+const fs   = require('fs')
+const logJson = require('prettyoutput')
+const { load } = require('js-yaml')
 const { Signales } = require('signales')
-const parseConfig = require('read-yaml-file').default
 
-const configPath = path.resolve('wpm.config.yml')
+const configFilesMap = {
+  yaml: 'wpm.config.yml',
+}
+
+const configPath = path.resolve(configFilesMap.yaml)
 
 const logger = new Signales({
-  scope: 'wpm',
+  scope: 'workspace-package-manager',
 })
 
-parseConfig(configPath)
-  .then(config => {
-    // eslint-disable-next-line no-console
-    logger.debug(JSON.stringify(config, null, 2))
-  })
-  .catch(e => {
-    logger.error(`${e.reason.trim()}!\n\n`, e.mark.snippet.trim())
-  })
+const config = load(fs.readFileSync(configPath))
+
+logger.debug(configPath.replace(`${process.cwd()}/`, ''), `\n${logJson(config, { maxDepth: 10 })}`)

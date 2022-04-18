@@ -3,26 +3,24 @@ defaults:
     - '<root>/packages/**/__test__/**'
 
 modules:
-  # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   reader:
     - '@wpm/reader-environment' # read settings from PR, ENV.
     - '@wpm/reader-api' # read settings from specific URL.
   # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   updater:
-    name: '@wpm/updater-semver'
+    name: '@wpm/updater-github-semver'
     mode: 'united'
+    source: 'tag'
     ignore:
       - '<root>/packages/test-utils/**' # extend default setting
     message: 'Release commit {{version}}!'
   # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   publisher:
-    - '@wpm/publisher-node-local' # build local node package
-    -
-      name: '@wpm/publisher-node-registry'
+    - '@wpm/publisher-local' # build local node package
+    - name: '@wpm/publisher-registry'
       registry: 'https://registry.npmjs.org'
   # --- --- --- --- --- --- --- --- --- --- --- --- --- ---
   reporter:
     - '@wpm/reporter-file'
-    -
-      name: '@wpm/reporter-telegram'
+    - name: '@wpm/reporter-telegram'
       credentials: $TELEGRAM_WEBHOOK_KEY

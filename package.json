@@ -19,7 +19,8 @@
     "eslint": "^8.12.0",
     "eslint-plugin-import": "^2.25.4",
     "jest": "^27.5.1",
-    "read-yaml-file": "^2.1.0",
+    "js-yaml": "^4.1.0",
+    "prettyoutput": "^1.2.0",
     "typescript": "^4.6.3"
   },
   "homepage": "https://reutenkoivan.github.io/wpm/",
